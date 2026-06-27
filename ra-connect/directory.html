@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find a specialist — RA Connect</title>
+  <meta name="description" content="Search rheumatologists, therapists, and other RA specialists." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body data-protected="true">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="page-shell">
+    <div class="daybreak-bar" aria-hidden="true"></div>
+
+    <header class="app-header">
+      <div class="app-header__bar">
+        <a class="brand" href="dashboard.html">
+          <svg class="brand__mark" viewBox="0 0 48 48" role="img" aria-label="RA Connect logo">
+            <defs>
+              <linearGradient id="logoGradientDir" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1f5c5a" />
+                <stop offset="55%" stop-color="#c9881f" />
+                <stop offset="100%" stop-color="#cf5a36" />
+              </linearGradient>
+            </defs>
+            <circle cx="19" cy="19" r="14" fill="url(#logoGradientDir)" opacity="0.9" />
+            <circle cx="30" cy="30" r="14" fill="url(#logoGradientDir)" opacity="0.55" />
+          </svg>
+          RA Connect
+        </a>
+        <nav class="main-nav" aria-label="Main">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <ul class="main-nav__list" id="primary-nav">
+            <li><a class="main-nav__link" href="dashboard.html">Dashboard</a></li>
+            <li><a class="main-nav__link" href="directory.html">Directory</a></li>
+            <li><a class="main-nav__link" href="messages.html">Messages</a></li>
+            <li><a class="main-nav__link" href="community.html">Community</a></li>
+            <li><a class="main-nav__link" href="#" data-logout>Log out</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="disclaimer-banner">
+      <div class="disclaimer-banner__inner">
+        <span aria-hidden="true">ℹ️</span>
+        <p class="mb-0"><strong>Prototype notice:</strong> Every profile below is fictional, made up for this demo. Please don't book real appointments through this page.</p>
+      </div>
+    </div>
+
+    <main id="main-content">
+      <span class="eyebrow">Directory</span>
+      <h1>Find a specialist</h1>
+      <p class="text-soft">Search by name, or filter by specialty and location.</p>
+
+      <section class="directory-toolbar">
+        <div class="toolbar-grid">
+          <div class="field mb-0">
+            <label for="search-input">Search by name or keyword</label>
+            <input type="search" id="search-input" placeholder="Try “rheumatologist” or “Okafor”" />
+          </div>
+          <div class="field mb-0">
+            <label for="specialty-select">Specialty</label>
+            <select id="specialty-select">
+              <option value="">All specialties</option>
+            </select>
+          </div>
+          <div class="field mb-0">
+            <label for="location-select">Location</label>
+            <select id="location-select">
+              <option value="">All locations</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-chip-row" role="group" aria-label="Additional filters">
+          <button type="button" class="filter-chip" id="chip-accepting" aria-pressed="false">Accepting new patients</button>
+          <button type="button" class="filter-chip" id="chip-telehealth" aria-pressed="false">Telehealth available</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="clear-filters">Clear filters</button>
+        </div>
+      </section>
+
+      <p class="results-meta" id="results-meta" aria-live="polite"></p>
+
+      <div class="doctor-grid" id="doctor-grid"></div>
+    </main>
+
+    <footer class="app-footer">
+      <div class="app-footer__inner">
+        <span>RA Connect is a student-built prototype, not a real medical service.</span>
+        <span><a href="https://github.com/" target="_blank" rel="noopener">View source on GitHub</a></span>
+      </div>
+    </footer>
+  </div>
+
+  <dialog id="profile-dialog" class="profile-dialog" aria-labelledby="profile-dialog-title">
+    <div class="profile-dialog__inner" id="profile-dialog-content"></div>
+  </dialog>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/directory.js"></script>
+</body>
+</html>

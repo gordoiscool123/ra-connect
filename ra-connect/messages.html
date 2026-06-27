@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Messages — RA Connect</title>
+  <meta name="description" content="Message your RA care team." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body data-protected="true">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="page-shell">
+    <div class="daybreak-bar" aria-hidden="true"></div>
+
+    <header class="app-header">
+      <div class="app-header__bar">
+        <a class="brand" href="dashboard.html">
+          <svg class="brand__mark" viewBox="0 0 48 48" role="img" aria-label="RA Connect logo">
+            <defs>
+              <linearGradient id="logoGradientMsg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1f5c5a" />
+                <stop offset="55%" stop-color="#c9881f" />
+                <stop offset="100%" stop-color="#cf5a36" />
+              </linearGradient>
+            </defs>
+            <circle cx="19" cy="19" r="14" fill="url(#logoGradientMsg)" opacity="0.9" />
+            <circle cx="30" cy="30" r="14" fill="url(#logoGradientMsg)" opacity="0.55" />
+          </svg>
+          RA Connect
+        </a>
+        <nav class="main-nav" aria-label="Main">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <ul class="main-nav__list" id="primary-nav">
+            <li><a class="main-nav__link" href="dashboard.html">Dashboard</a></li>
+            <li><a class="main-nav__link" href="directory.html">Directory</a></li>
+            <li><a class="main-nav__link" href="messages.html">Messages</a></li>
+            <li><a class="main-nav__link" href="community.html">Community</a></li>
+            <li><a class="main-nav__link" href="#" data-logout>Log out</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="disclaimer-banner">
+      <div class="disclaimer-banner__inner">
+        <span aria-hidden="true">ℹ️</span>
+        <p class="mb-0"><strong>Prototype notice:</strong> These conversations are simulated and stored only in your browser. No real doctor will see anything you type here.</p>
+      </div>
+    </div>
+
+    <main id="main-content">
+      <span class="eyebrow">Messages</span>
+      <h1>Your conversations</h1>
+
+      <div class="messages-shell">
+        <section class="conversation-list" aria-label="Conversations">
+          <div style="padding: 1rem; border-bottom:1px solid var(--border);">
+            <button type="button" class="btn btn-primary btn-block btn-sm" id="new-message-btn">+ New message</button>
+          </div>
+          <div id="conversation-items"></div>
+        </section>
+
+        <section class="chat-panel" aria-label="Chat">
+          <div id="chat-empty" class="empty-state">
+            <h3>Select a conversation</h3>
+            <p>Choose someone from the list, or start a new message.</p>
+          </div>
+
+          <div id="chat-active" hidden style="display:flex; flex-direction:column; height:100%;">
+            <div class="chat-panel__header">
+              <button type="button" class="btn btn-ghost btn-sm chat-panel__back" id="chat-back">← Back</button>
+              <span class="avatar avatar-sm" id="chat-avatar"></span>
+              <div>
+                <strong id="chat-doctor-name"></strong>
+                <p class="text-soft mb-0" id="chat-doctor-specialty" style="font-size:0.85rem;"></p>
+              </div>
+            </div>
+            <div class="chat-thread" id="chat-thread" aria-live="polite"></div>
+            <p class="chat-typing" id="chat-typing" aria-live="polite"></p>
+            <form class="chat-composer" id="chat-composer">
+              <label for="chat-input" class="visually-hidden">Type a message</label>
+              <textarea id="chat-input" placeholder="Type your message…"></textarea>
+              <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <div class="app-footer__inner">
+        <span>RA Connect is a student-built prototype, not a real medical service.</span>
+        <span><a href="https://github.com/" target="_blank" rel="noopener">View source on GitHub</a></span>
+      </div>
+    </footer>
+  </div>
+
+  <dialog id="new-message-dialog" class="profile-dialog" aria-labelledby="new-message-title">
+    <div class="profile-dialog__inner">
+      <button type="button" class="btn btn-ghost btn-sm profile-dialog__close" id="close-new-message" aria-label="Close">✕ Close</button>
+      <h2 id="new-message-title" style="margin-top:2rem;">Start a new message</h2>
+      <div class="field">
+        <label for="new-message-select">Choose a member of your care team</label>
+        <select id="new-message-select"></select>
+      </div>
+      <button type="button" class="btn btn-primary btn-block" id="start-conversation-btn">Start conversation</button>
+    </div>
+  </dialog>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/messages.js"></script>
+</body>
+</html>
